@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "557f0580-535d-4245-ba8c-8fa5c44a4675",
+		"name": "challenge Zero",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8088/api/v2/users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://35.188.114.237:8088/api/v2/users",
+					"protocol": "http",
+					"host": [
+						"35",
+						"188",
+						"114",
+						"237"
+					],
+					"port": "8088",
+					"path": [
+						"api",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://35.188.114.237:8088/api/v2/addusers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ca61cb8a-0db9-421c-b243-91b260071ea1",
+						"exec": [
+							"var data = JSON.parse(responseBody);\r",
+							"pm.globals.set(\"New_ID\", data.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\":\"vmw\",\r\n\"surname\":\"wmv\",\r\n\"adress\":\"India\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://35.188.114.237:8088/api/v2/addusers",
+					"protocol": "http",
+					"host": [
+						"35",
+						"188",
+						"114",
+						"237"
+					],
+					"port": "8088",
+					"path": [
+						"api",
+						"v2",
+						"addusers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://35.188.114.237:8088/api/v2/updateuser",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"id\":{{New_ID}},\r\n\"name\":\"vmw\",\r\n\"surname\":\"wakale_V\",\r\n\"address\":\"india\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://35.188.114.237:8088/api/v2/updateuser",
+					"protocol": "http",
+					"host": [
+						"35",
+						"188",
+						"114",
+						"237"
+					],
+					"port": "8088",
+					"path": [
+						"api",
+						"v2",
+						"updateuser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://35.188.114.237:8088/api/v2/deleteuser",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"id\":79,\r\n\"name\":\"vmw\",\r\n\"surname\":\"wakale\",\r\n\"address\":\"india\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://35.188.114.237:8088/api/v2/{{New_ID}}/deleteuser",
+					"protocol": "http",
+					"host": [
+						"35",
+						"188",
+						"114",
+						"237"
+					],
+					"port": "8088",
+					"path": [
+						"api",
+						"v2",
+						"{{New_ID}}",
+						"deleteuser"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
